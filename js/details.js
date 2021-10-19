@@ -1,42 +1,51 @@
-const container = document.querySelector(".container");
+const container = document.querySelector(".detailsContainer");
 
 const queryString = document.location.search;
 
-console.log(queryString);
-
 const params = new URLSearchParams(queryString);
-
-console.log(params);
 
 const id = params.get("id");
 
-
-const url = "https://makeup-api.herokuapp.com/api/v1/products.json?product_type=lipstick" + id;
+const url = "https://kitsu.io/api/edge/anime/" + id;
 
 console.log(url);
 
-async function getLipstick() {
+const loading = document.querySelector(".loader");
+
+loading.classList.remove("loader");
+
+
+async function getAPI() {
     try {
         const response = await fetch(url);
 
         const results = await response.json();
 
-        console.log(results);
+        console.log(results.data);
 
-        createHTML(results);
+        const anime = results.data;
+
+        createHTML(anime);
     }
     catch {
         console.log("There's an error");
-        container.innerHTML = `<div>Error</div>`;
+        container.innerHTML = `<div>There's an error.</div>`;
     }
 }
 
-getLipstick();
+getAPI();
 
-function createHTML(results) {
-    container.innerHTML += `<a href="details.html?id=${results.id}" class="item">
-                                <div class="card">
-                                <h3>Name: ${results.name}</h3>
-                                </div>
-                                </a>`;
+function createHTML(anime) {
+
+        container.innerHTML += `<a class="item" href="details.html?id=${anime.id}">
+                            <div class="card">
+                            <h3>Name: ${anime.attributes.canonicalTitle}</h3>
+                            <img src="${anime.attributes.posterImage.tiny}" alt="${anime.canonicalTitle}">
+                            <h3>Status: ${anime.attributes.status}</h3>
+                            <h3>Average Rating: ${anime.attributes.averageRating}</h3>
+                            <h3>Episodes: ${anime.attributes.episodeCount}</h3>
+                            <h3>Description:</h3>
+                            <p>${anime.attributes.description}</p>
+                            </div>
+                            </a>`;
 }

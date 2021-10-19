@@ -1,35 +1,38 @@
 const container = document.querySelector(".container");
 
-const url = "https://makeup-api.herokuapp.com/api/v1/products.json?product_type=lipstick";
+const url = "https://kitsu.io/api/edge/anime";
 
 
 async function getAPI () {
     try {
         const response = await fetch(url);
 
-        const results = await response.json();
+        const json = await response.json();
 
-        console.log(results);
+        const anime = json.data;
 
-        container.innerHTML = "";
+        console.log(anime);
 
-        results.forEach(function(){
+        const loading = document.querySelector(".loader");
 
+        loading.classList.remove("loader");
+
+
+        anime.forEach(function(selectedAnime){
     
-            container.innerHTML += `<a href="details.html?id=${results.id}" class="item">
+            container.innerHTML += `<a class="item" href="details.html?id=${selectedAnime.id}">
                                 <div class="card">
-                                <h3>Brand: ${results.brand}</h3>
-                                <h3>Name: ${results.name}</h3>
-                                <h3>Price: ${results.price}</h3>
+                                <h3>Name: ${selectedAnime.attributes.canonicalTitle}</h3>
+                                <img src="${selectedAnime.attributes.posterImage.tiny}" alt="${selectedAnime.canonicalTitle}">
+                                <h3>Status: ${selectedAnime.attributes.status}</h3>
                                 </div>
                                 </a>`;
-        
-       });
+        });
     }
     
     catch {
-        console.log("Error");
-        container.innerHTML = `<div>Error</div>`;
+        console.log("There's an error.");
+        container.innerHTML = `<div>Error.</div>`;
     }
 }
 
