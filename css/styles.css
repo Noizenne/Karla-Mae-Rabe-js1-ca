@@ -53,6 +53,49 @@ a {
     transform: translateX(-50%);
 }
 
+/*Contact*/
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+form {
+    background-color: #dde5e9;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+input {
+    width: 100%;
+    margin-top: 2px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+button {
+    background-color: rgb(0, 25, 138);
+    border: none;
+    width: 200px;
+    padding: 1rem;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+}
+
+.formError {
+    display: none;
+    color: red;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
