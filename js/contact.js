@@ -8,9 +8,6 @@ const emailError = document.querySelector("#emailError");
 const address = document.querySelector("#address");
 const addressError = document.querySelector("#addressError");
 
-const message = document.querySelector("#message");
-const button = document.querySelector("#button");
-
 function validateForm(event) {
     event.preventDefault();
 
