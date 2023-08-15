@@ -1,62 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Karla Mae Rabe JavaScript 1 - CA</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <nav>
-        <li>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navbar  -->
+    <header>
+      <nav>
+        <div>
+          <a href="/">AnimeSite</a>
+        </div>
+        <ul>
+          <li>
             <a href="index.html">Home</a>
+          </li>
+          <li>
             <a href="contact.html">Contact</a>
-        </li>
-    </nav>
-
-    
-    <div class="loader"></div>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
     <main class="contact-container">
-        <form id="contactForm">
-            <div>
-                <label>
-                    Name (required)
-                    <input name="name" id="name" />
-                </label>
-                <div class="formError" id="nameError">Please enter your name</div>
-            </div>
+      <form id="contactForm">
+        <div>
+          <label>
+            Name (required)
+          </label>
+          <input name="name" id="name" />
+          <div class="formError" id="nameError">Please enter your name</div>
+        </div>
 
-            <div>
-                <label>
-                    Subject (minimum 10 characters)
-                    <input name="subject" id="subject" />
-                </label>
-                <div class="formError" id="subjectError">Your subject must have a value of a minimum length of 10 characters</div>
-            </div>
+        <div>
+          <label>
+            Subject (minimum 10 characters)
+          </label>
+          <input name="subject" id="subject" />
+          <div class="formError" id="subjectError">
+            Your subject must have a value of a minimum length of 10 characters
+          </div>
+        </div>
 
-            <div>
-                <label>
-                    Email (required)
-                    <input name="email" id="email" />
-                </label>
-                <div class="formError" id="emailError">Please enter your email address</div>
-            </div>
+        <div>
+          <label>
+            Email (required)
+          </label>
+          <input name="email" id="email" />
+          <div class="formError" id="emailError">
+            Please enter your email address
+          </div>
+        </div>
 
-            <div>
-                <label>
-                    Address (minimum of 25 characters)
-                    <input name="address" id="address" />
-                </label>
-                <div class="formError" id="addressError">Your address must have a value of a minimum length of 25 characters</div>
-            </div>
+        <div>
+          <label>
+            Address (minimum of 25 characters)
+          </label>
+          <input name="address" id="address" />
+          <div class="formError" id="addressError">
+            Your address must have a value of a minimum length of 25 characters
+          </div>
+        </div>
 
-            <button>Submit</button>
-        </form>
-
+        <button>Submit</button>
+      </form>
     </main>
 
     <script src="js/contact.js"></script>
-</body>
+  </body>
 </html>

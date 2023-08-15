@@ -8,9 +8,6 @@ const emailError = document.querySelector("#emailError");
 const address = document.querySelector("#address");
 const addressError = document.querySelector("#addressError");
 
-const loading = document.querySelector(".loader");
-loading.classList.remove("loader");
-
 function validateForm(event) {
     event.preventDefault();
 
@@ -43,7 +40,7 @@ function validateForm(event) {
 form.addEventListener("submit", validateForm);
 
 function checkLength(value, len) {
-    if (value.trim().length > len) {
+    if (value.trim().length >= len) {
         return true;
     } else {
         return false;
